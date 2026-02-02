@@ -23,8 +23,14 @@ h2 {
   height: 50px;
 }
 
+input {
+  text-align: center;
+  height: 28px;
+  width: 120px;
+}
+
 .log-in input {
   padding: 10px;
   border-radius: 16px;
-  border: none;
+  border: 0.5px solid rgb(209, 206, 206);
 }
