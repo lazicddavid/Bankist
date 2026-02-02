@@ -7,6 +7,7 @@ body {
 }
 
 .nav-bar {
+  align-items: center;
   padding: 10px;
   display: flex;
   justify-content: space-between;
