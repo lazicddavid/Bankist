@@ -24,6 +24,7 @@ h2 {
 }
 
 input {
+  outline: none;
   text-align: center;
   height: 28px;
   width: 120px;
