@@ -58,3 +58,13 @@ input {
   align-items: center;
   gap: 12px;
 }
+
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.layout {
+  transition: opacity 0.3s ease;
+}
