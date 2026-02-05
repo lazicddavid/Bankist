@@ -1,0 +1,150 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: rgb(233, 232, 232);
+}
+
+.nav-bar {
+  align-items: center;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: x-large;
+  color: gray;
+}
+
+.loginlogo {
+  width: 50px;
+  height: 50px;
+}
+
+input {
+  outline: none;
+  text-align: center;
+
+  width: 120px;
+}
+
+.log-in input {
+  padding: 0 12px;
+  background-color: rgba(255, 255, 255, 0.658);
+  padding: 8px 12px;
+  border-radius: 16px;
+  border: none;
+}
+
+.login-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.arrow {
+  position: relative;
+  width: 22px;
+  height: 2px;
+}
+
+.log-in {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hidden {
+  display: none;
+}
+
+.layout {
+  transition: opacity 0.3s ease;
+}
+
+.layout-dashboard {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.main-title {
+  margin: 0 auto;
+  margin-bottom: 10px;
+  color: rgb(78, 78, 78);
+  font-size: x-large;
+  font-weight: 600;
+}
+
+.date-time {
+  font-size: 18px;
+  color: rgb(137, 137, 137);
+}
+.total-balance {
+  color: rgb(46, 46, 46);
+  font-weight: 500;
+  font-size: 3rem;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: 2.5fr 1fr;
+  gap: 24px;
+}
+
+.movement {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 10px 0;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.movement-type {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 20px;
+  color: #fff;
+  justify-self: start;
+}
+
+.movement-type.deposit {
+  background-color: #4caf50;
+}
+
+.movement-type.withdrawal {
+  background-color: #f44336;
+}
+
+.movement-date {
+  color: #777;
+  font-size: 13px;
+  margin-left: 20px;
+}
+
+.movement-amount {
+  font-size: 16px;
+  font-weight: 500;
+  justify-self: end;
+}

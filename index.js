@@ -1,11 +1,14 @@
+console.log("JS radi");
+
 const DOM = {
-  loginBtn: document.querySelector("login-btn"),
+  loginBtn: document.querySelector(".login-btn"),
   navBar: document.querySelector(".nav-bar"),
   dashboard: document.querySelector(".layout-dashboard"),
 };
 
-DOM.loginBtn.addEventListener("click", () => {
+DOM.loginBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  DOM.navBar.classlist.add("hidden");
-  DOM.dashboard.classlist.add("hidden");
+
+  DOM.navBar.classList.add("hidden");
+  DOM.dashboard.classList.remove("hidden");
 });
