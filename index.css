@@ -148,3 +148,7 @@ input {
   font-weight: 500;
   justify-self: end;
 }
+
+.footer {
+  color: rgb(red, green, blue);
+}
