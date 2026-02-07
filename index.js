@@ -1,9 +1,11 @@
-console.log("JS radi");
+import accounts from "./account/accounts.js";
 
 const DOM = {
   loginBtn: document.querySelector(".login-btn"),
   navBar: document.querySelector(".nav-bar"),
   dashboard: document.querySelector(".layout-dashboard"),
+  inputUser: document.querySelector(".login-user"),
+  inputPin: document.querySelector(".login-pin"),
 };
 
 DOM.loginBtn.addEventListener("click", (e) => {
