@@ -188,7 +188,6 @@ input {
   padding: 10px 12px;
   border-radius: 8px;
   font-size: 14px;
-  outline: none;
 }
 
 .transfer input {
@@ -201,4 +200,13 @@ input {
 
 .close input {
   background-color: #ff9aaa;
+}
+
+.btn {
+  border: none;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 18px;
+  cursor: pointer;
 }
