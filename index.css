@@ -182,3 +182,23 @@ input {
 .close {
   background-color: #ff4d6d;
 }
+
+.card input {
+  border: none;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+}
+
+.transfer input {
+  background-color: #ffe680;
+}
+
+.loan input {
+  background-color: #b7e7b0;
+}
+
+.close input {
+  background-color: #ff9aaa;
+}
