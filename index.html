@@ -3,129 +3,121 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="index.css" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bankist</title>
   </head>
-  <div>
-    
-      <div class="nav-bar">
-        <h2>Log in to get started</h2>
-        <img class="loginlogo" src="logo.png" />
 
-        <div class="log-in">
-          <input placeholder="user" />
-          <input placeholder="PIN" />
-          <button class="login-btn">
-            <svg width="28" height="14" viewBox="0 0 28 14">
-              <path
-                d="M0 7 H24 M18 1 L24 7 L18 13"
-                stroke="black"
-                stroke-width="2"
-                fill="none"
-              />
-            </svg>
-          </button>
-        </div>
+  <body>
+    <div class="nav-bar">
+      <h2>Log in to get started</h2>
+      <img class="loginlogo" src="logo.png" />
+
+      <div class="log-in">
+        <input placeholder="user" />
+        <input placeholder="PIN" />
+        <button class="login-btn">
+          <svg width="28" height="14" viewBox="0 0 28 14">
+            <path
+              d="M0 7 H24 M18 1 L24 7 L18 13"
+              stroke="black"
+              stroke-width="2"
+              fill="none"
+            />
+          </svg>
+        </button>
       </div>
-   <div class="layout layout-dashboard hidden">
-  <div class="current-balance">
-    <h3 class="main-title">Current balance</h3>
-
-    <span class="date-time">As of 2/4/2026, 8:25 PM</span>
-  </div>
-
-  <div class="total-balance">$11,721.00</div>
-</div>
-<!--grid glavni-->
-<div class="dashboard">
-  <!--levo-->
-<section class="movements">
-  <div class="movement">
-    <span class="movement-type withdrawal">8 withdrawal</span>
-    <span class="movement-date">2/26/2020</span>
-    <span class="movement-amount">-$30.00</span>
-  </div>
-
-  <div class="movement">
-    <span class="movement-type deposit">7 deposit</span>
-    <span class="movement-date">12/25/2019</span>
-    <span class="movement-amount">$8,500.00</span>
-  </div>
-
-  <div class="movement">
-    <span class="movement-type withdrawal">6 withdrawal</span>
-    <span class="movement-date">11/30/2019</span>
-    <span class="movement-amount">-$1,000.00</span>
-  </div>
-
-  <div class="movement">
-    <span class="movement-type withdrawal">5 withdrawal</span>
-    <span class="movement-date">1/1/2019</span>
-    <span class="movement-amount">-$3,210.00</span>
-  </div>
-
-  <div class="movement">
-    <span class="movement-type withdrawal">4 withdrawal</span>
-    <span class="movement-date">4/25/2019</span>
-    <span class="movement-amount">-$790.00</span>
-  </div>
-
-  <div class="movement">
-    <span class="movement-type withdrawal">3 withdrawal</span>
-    <span class="movement-date">3/10/2019</span>
-    <span class="movement-amount">-$150.00</span>
-  </div>
-
-  <div class="movement">
-    <span class="movement-type deposit">2 deposit</span>
-    <span class="movement-date">2/5/2019</span>
-    <span class="movement-amount">$3,400.00</span>
-  </div>
-</section>
-<section class="action">
-  <section class="actions">
-  <!-- TRANSFER -->
-  <div class="card transfer">
-    <h3>Transfer money</h3>
-    <div class="inputs">
-      <input type="text" placeholder="Transfer to" />
-      <input type="number" placeholder="Amount" />
-      <button class="btn">→</button>
     </div>
-  </div>
 
-  <!-- LOAN -->
-  <div class="card loan">
-    <h3>Request loan</h3>
-    <div class="inputs loan-inputs">
-      <input type="number" placeholder="Amount" />
-      <button class="btn">→</button>
+    <div class="layout layout-dashboard hidden">
+      <div class="current-balance">
+        <div>
+          <h3 class="main-title">Current balance</h3>
+          <span class="date-time">As of 2/4/2026, 8:25 PM</span>
+        </div>
+        <div class="total-balance">$11,721.00</div>
+      </div>
+
+      <div class="dashboard">
+        <section class="movements">
+          <div class="movement">
+            <span class="movement-type withdrawal">8 withdrawal</span>
+            <span class="movement-date">2/26/2020</span>
+            <span class="movement-amount">-$30.00</span>
+          </div>
+
+          <div class="movement">
+            <span class="movement-type deposit">7 deposit</span>
+            <span class="movement-date">12/25/2019</span>
+            <span class="movement-amount">$8,500.00</span>
+          </div>
+
+          <div class="movement">
+            <span class="movement-type withdrawal">6 withdrawal</span>
+            <span class="movement-date">11/30/2019</span>
+            <span class="movement-amount">-$1,000.00</span>
+          </div>
+
+          <div class="movement">
+            <span class="movement-type withdrawal">5 withdrawal</span>
+            <span class="movement-date">1/1/2019</span>
+            <span class="movement-amount">-$3,210.00</span>
+          </div>
+
+          <div class="movement">
+            <span class="movement-type withdrawal">4 withdrawal</span>
+            <span class="movement-date">4/25/2019</span>
+            <span class="movement-amount">-$790.00</span>
+          </div>
+
+          <div class="movement">
+            <span class="movement-type withdrawal">3 withdrawal</span>
+            <span class="movement-date">3/10/2019</span>
+            <span class="movement-amount">-$150.00</span>
+          </div>
+
+          <div class="movement">
+            <span class="movement-type deposit">2 deposit</span>
+            <span class="movement-date">2/5/2019</span>
+            <span class="movement-amount">$3,400.00</span>
+          </div>
+
+          <div class="movement">
+            <span class="movement-type withdrawal">1 withdrawal</span>
+            <span class="movement-date">3/10/2019</span>
+            <span class="movement-amount">-$100.00</span>
+          </div>
+        </section>
+
+        <section class="actions">
+          <div class="card transfer">
+            <h3>Transfer money</h3>
+            <div class="inputs">
+              <input type="text" placeholder="Transfer to" />
+              <input type="number" placeholder="Amount" />
+              <button class="btn">→</button>
+            </div>
+          </div>
+
+          <div class="card loan">
+            <h3>Request loan</h3>
+            <div class="inputs loan-inputs">
+              <input type="number" placeholder="Amount" />
+              <button class="btn">→</button>
+            </div>
+          </div>
+
+          <div class="card close">
+            <h3>Close account</h3>
+            <div class="inputs">
+              <input type="text" placeholder="Confirm user" />
+              <input type="password" placeholder="Confirm PIN" />
+              <button class="btn">→</button>
+            </div>
+          </div>
+        </section>
+      </div>
     </div>
-  </div>
-
-  <!-- CLOSE -->
-  <div class="card close">
-    <h3>Close account</h3>
-    <div class="inputs">
-      <input type="text" placeholder="Confirm user" />
-      <input type="password" placeholder="Confirm PIN" />
-      <button class="btn">→</button>
-    </div>
-  </div>
-</section>
-
-</section>
-</div>
-</div>
-
 
     <script type="module" src="/index.js"></script>
   </body>
 </html>
-
-
-
-
-
-<!-- pogledati chatgpt i ispravke strukture-->
