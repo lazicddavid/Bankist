@@ -170,3 +170,15 @@ input {
   font-size: 18px;
   font-weight: 600;
 }
+
+.transfer {
+  background-color: #ffcc00;
+}
+
+.loan {
+  background-color: #7ed56f;
+}
+
+.close {
+  background-color: #ff4d6d;
+}
