@@ -8,6 +8,17 @@ const DOM = {
   inputPin: document.querySelector(".login-pin"),
 };
 
+
+accounts.forEach(account => {
+  const parts = account.owner.toLowerCase().split(" ");
+  let username = "";
+
+  parts.forEach(word => {
+    username += word[0];
+  });
+
+
+
 DOM.loginBtn.addEventListener("click", (e) => {
   e.preventDefault();
 
