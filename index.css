@@ -105,7 +105,6 @@ input {
 }
 
 .movement {
-  display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
   padding: 14px 24px;
@@ -114,6 +113,7 @@ input {
 }
 
 .movements {
+  max-width: 60%;
   background-color: #fff;
   border-radius: 12px;
   max-height: 420px;
