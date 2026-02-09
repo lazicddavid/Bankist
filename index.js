@@ -29,6 +29,15 @@ DOM.loginBtn.addEventListener("click", function (e) {
     (account) => account.username === enteredUser && account.pin === enteredPin,
   );
 
+  if (activeUser) {
+    console.log("ulogovan", activeUser);
+
+    DOM.navBar.classList.add("hidden");
+    DOM.dashboard.classList.remove("hidden");
+  } else {
+    console.log("pogresan user ili  pin");
+  }
+
   DOM.inputUser.value = "";
   DOM.inputPin.value = "";
 });
