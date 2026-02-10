@@ -8,11 +8,12 @@ const DOM = {
   inputPin: document.querySelector(".login-pin"),
 };
 
-accounts.forEach((account) => {
+accounts.find((account) => {
   const initials = account.owner.toLowerCase().split(" ");
   let username = "";
 
-  initials.forEach((word) => {
+  initials.find((word) => {
+    //find?
     username += word[0];
   });
 
