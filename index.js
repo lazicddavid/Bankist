@@ -6,6 +6,10 @@ const DOM = {
   dashboard: document.querySelector(".layout-dashboard"),
   inputUser: document.querySelector(".login-user"),
   inputPin: document.querySelector(".login-pin"),
+  transferBtn: document.querySelector(".transfer-btn"),
+  transferTo: document.querySelector(".transfer-to"),
+  transferAmount: document.querySelector(".transfer-amount"),
+  transactionList: document.querySelector(".transactions"),
 };
 let currentAccount;
 
@@ -32,14 +36,15 @@ DOM.loginBtn.addEventListener("click", function (e) {
   );
 
   if (activeUser) {
-    console.log("ulogovan", activeUser);
+    currentAccount = activeUser;
 
     DOM.navBar.classList.add("hidden");
     DOM.dashboard.classList.remove("hidden");
-  } else {
-    console.log("pogresan user ili  pin");
-  }
 
+    renderTransactions();
+  } else {
+    console.log("pogresan user ili pin");
+  }
   DOM.inputUser.value = "";
   DOM.inputPin.value = "";
 });
