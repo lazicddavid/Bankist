@@ -1,5 +1,5 @@
 import accounts from "./account/accounts.js";
-
+//pomeri ovo u poseban fajl "constanst.js" ,a a onda ga importuj u ovaj fajl
 const DOM = {
   loginBtn: document.querySelector(".login-btn"),
   navBar: document.querySelector(".nav-bar"),
@@ -11,7 +11,14 @@ const DOM = {
   transferAmount: document.querySelector(".transfer-amount"),
   transactionList: document.querySelector(".transactions"),
   totalBalance: document.querySelector(".total-balance"),
+  closeBtn: document.querySelector(".close-btn"),
+  closeUser: document.querySelector(".close-user"),
+  closePin: document.querySelector(".close-pin"),
+  modal: document.querySelector(".modal"),
+  confirmYes: document.querySelector(".confirm-yes"),
+  confirmNo: document.querySelector(".confirm-no"),
 };
+
 let currentAccount;
 
 accounts.forEach(function (account) {
@@ -24,6 +31,8 @@ accounts.forEach(function (account) {
 
   account.username = username;
 });
+
+//napravi neki stejt user i u njega da imam balance, movements,
 
 function calculateBalance(account) {
   let total = 0;
@@ -39,8 +48,6 @@ function renderBalance() {
   const balance = calculateBalance(currentAccount);
   DOM.totalBalance.textContent = balance + " €";
 }
-
-//prikaz transakcija
 
 function renderTransactions() {
   DOM.transactionList.innerHTML = "";
@@ -62,16 +69,19 @@ function renderTransactions() {
   });
 }
 
-//lis.
-
+//login //listener
 DOM.loginBtn.addEventListener("click", function (event) {
   event.preventDefault();
 
-  const enteredUser = DOM.inputUser.value;
+  const enteredUser = DOM.inputUser.value.toLowerCase();
   const enteredPin = Number(DOM.inputPin.value);
 
   const activeUser = accounts.find(function (account) {
-    return account.username === enteredUser && account.pin === enteredPin;
+    return (
+      account.username === enteredUser &&
+      account.pin === enteredPin &&
+      !account.disabled
+    );
   });
 
   if (activeUser) {
@@ -81,14 +91,15 @@ DOM.loginBtn.addEventListener("click", function (event) {
     DOM.dashboard.classList.remove("hidden");
 
     renderTransactions();
+    renderBalance();
   } else {
-    console.log("wrong usernaem or pin");
+    console.log("wrong username or pin");
   }
 
   DOM.inputUser.value = "";
   DOM.inputPin.value = "";
 });
-
+//transf. novca
 DOM.transferBtn.addEventListener("click", function (event) {
   event.preventDefault();
 
@@ -108,10 +119,7 @@ DOM.transferBtn.addEventListener("click", function (event) {
     amount <= 10000 &&
     currentBalance >= amount
   ) {
-    // skini novac sa trenutnog naloga
     currentAccount.movements.push(-amount);
-
-    // dodaj novac primaocu
     receiverAccount.movements.push(amount);
 
     renderTransactions();
@@ -120,4 +128,41 @@ DOM.transferBtn.addEventListener("click", function (event) {
 
   DOM.transferTo.value = "";
   DOM.transferAmount.value = "";
+});
+
+DOM.closeBtn.addEventListener("click", function (event) {
+  event.preventDefault();
+
+  if (!currentAccount) return;
+
+  const enteredUser = DOM.closeUser.value;
+  const enteredPin = Number(DOM.closePin.value);
+
+  if (
+    enteredUser === currentAccount.username &&
+    enteredPin === currentAccount.pin
+  ) {
+    DOM.modal.classList.remove("hidden");
+  }
+
+  DOM.closeUser.value = "";
+  DOM.closePin.value = "";
+});
+
+DOM.confirmYes.addEventListener("click", function () {
+  if (!currentAccount) return;
+  //current account = null; kad obrisem account - izbrisan je iz array
+
+  //loan , do 10,000$
+  currentAccount.disabled = true;
+
+  DOM.modal.classList.add("hidden");
+  DOM.dashboard.classList.add("hidden");
+  DOM.navBar.classList.remove("hidden");
+
+  currentAccount = null;
+});
+
+DOM.confirmNo.addEventListener("click", function () {
+  DOM.modal.classList.add("hidden");
 });

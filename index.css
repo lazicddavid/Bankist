@@ -135,12 +135,10 @@ input {
   width: fit-content;
 }
 
-/* gradient deposit */
 .movement-type.deposit {
   background: linear-gradient(to right, #66bb6a, #43a047);
 }
 
-/* gradient withdrawal */
 .movement-type.withdrawal {
   background: linear-gradient(to right, #ff6b6b, #e53935);
 }
@@ -220,4 +218,44 @@ input {
   font-size: 18px;
   cursor: pointer;
   padding: 10px 14px;
+}
+
+.modal {
+  position: fixed;
+
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-box {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  width: 320px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.confirm-yes {
+  background: red;
+  border: none;
+  padding: 8px 18px;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.confirm-no {
+  background: white;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 8px;
+  cursor: pointer;
 }
