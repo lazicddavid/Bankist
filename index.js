@@ -10,6 +10,7 @@ const DOM = {
   transferTo: document.querySelector(".transfer-to"),
   transferAmount: document.querySelector(".transfer-amount"),
   transactionList: document.querySelector(".transactions"),
+  totalBalance: document.querySelector(".total-balance"),
 };
 let currentAccount;
 
