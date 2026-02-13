@@ -7,6 +7,7 @@ const DOM = {
   inputUser: document.querySelector(".login-user"),
   inputPin: document.querySelector(".login-pin"),
 };
+let currentAccount;
 
 accounts.find((account) => {
   const initials = account.owner.toLowerCase().split(" ");
