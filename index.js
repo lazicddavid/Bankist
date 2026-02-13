@@ -35,7 +35,13 @@ function calculateBalance(account) {
   return total;
 }
 
+function renderBalance() {
+  const balance = calculateBalance(currentAccount);
+  DOM.totalBalance.textContent = balance + " €";
+}
+
 //prikaz transakcija
+
 function renderTransactions() {
   DOM.transactionList.innerHTML = "";
 
