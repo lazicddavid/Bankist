@@ -38,19 +38,23 @@ function calculateBalance(account) {
 function renderTransactions() {
   DOM.transactionList.innerHTML = "";
 
-  currentAccount.movements.forEach(function (movement) {
+  currentAccount.movements.forEach(function (movement, index) {
     const type = movement > 0 ? "deposit" : "withdrawal";
 
     const html = `
-      <div class="transaction ${type}">
-        <span>${type}</span>
-        <span>${movement}$</span>
+      <div class="movement">
+        <div class="movement-type ${type}">
+          ${currentAccount.movements.length - index} ${type}
+        </div>
+        <div class="movement-date">12/03/2020</div>
+        <div class="movement-amount">${movement} €</div>
       </div>
     `;
 
     DOM.transactionList.insertAdjacentHTML("afterbegin", html);
   });
 }
+
 //lis.
 
 DOM.loginBtn.addEventListener("click", function (event) {
@@ -71,7 +75,7 @@ DOM.loginBtn.addEventListener("click", function (event) {
 
     renderTransactions();
   } else {
-    console.log("pogresan user ili pin");
+    console.log("wrong usernaem or pin");
   }
 
   DOM.inputUser.value = "";
