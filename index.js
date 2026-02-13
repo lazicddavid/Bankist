@@ -81,7 +81,6 @@ DOM.loginBtn.addEventListener("click", function (event) {
     DOM.dashboard.classList.remove("hidden");
 
     renderTransactions();
-    renderBalance();
   } else {
     console.log("wrong usernaem or pin");
   }
@@ -116,6 +115,7 @@ DOM.transferBtn.addEventListener("click", function (event) {
     receiverAccount.movements.push(amount);
 
     renderTransactions();
+    renderBalance();
   }
 
   DOM.transferTo.value = "";
