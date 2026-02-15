@@ -17,6 +17,7 @@ const DOM = {
   modal: document.querySelector(".modal"),
   confirmYes: document.querySelector(".confirm-yes"),
   confirmNo: document.querySelector(".confirm-no"),
+  document.querrySelecto
 };
 
 let currentAccount;
