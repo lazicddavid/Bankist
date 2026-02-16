@@ -17,11 +17,9 @@ const DOM = {
   modal: document.querySelector(".modal"),
   confirmYes: document.querySelector(".confirm-yes"),
   confirmNo: document.querySelector(".confirm-no"),
-closeUser:
 };
 
 let currentAccount;
-
 accounts.forEach(function (account) {
   const initials = account.owner.toLowerCase().split(" ");
   let username = "";
