@@ -19,7 +19,7 @@ const DOM = {
   confirmNo: document.querySelector(".confirm-no"),
 };
 
-let currentAccount;
+let currentAccount;zz aaaaaa
 accounts.forEach(function (account) {
   const initials = account.owner.toLowerCase().split(" ");
   let username = "";
