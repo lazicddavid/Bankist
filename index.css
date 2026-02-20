@@ -262,4 +262,5 @@ input {
 
 .actions {
   display: flex;
+  justify-content: center;
 }
