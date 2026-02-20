@@ -260,10 +260,5 @@ input {
   cursor: pointer;
 }
 
-.actions {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  border: 1px solid #ddd;
+.btn {
 }
