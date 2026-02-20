@@ -260,5 +260,6 @@ input {
   cursor: pointer;
 }
 
-.confirm-no {
+.actions {
+  display: flex;
 }
