@@ -1,0 +1,20 @@
+const DOM = {
+  loginBtn: document.querySelector(".login-btn"),
+  navBar: document.querySelector(".nav-bar"),
+  dashboard: document.querySelector(".layout-dashboard"),
+  inputUser: document.querySelector(".login-user"),
+  inputPin: document.querySelector(".login-pin"),
+  transferBtn: document.querySelector(".transfer-btn"),
+  transferTo: document.querySelector(".transfer-to"),
+  transferAmount: document.querySelector(".transfer-amount"),
+  transactionList: document.querySelector(".transactions"),
+  totalBalance: document.querySelector(".total-balance"),
+  closeBtn: document.querySelector(".close-btn"),
+  closeUser: document.querySelector(".close-user"),
+  closePin: document.querySelector(".close-pin"),
+  modal: document.querySelector(".modal"),
+  confirmYes: document.querySelector(".confirm-yes"),
+  confirmNo: document.querySelector(".confirm-no"),
+};
+
+export default DOM;
