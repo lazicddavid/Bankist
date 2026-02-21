@@ -1,5 +1,6 @@
 import accounts from "./account/accounts.js";
 //DOM elements pomereni u poseban fajl i exportovani.
+import DOM from "./constants.js";
 let currentAccount;
 
 accounts.forEach(function (account) {
@@ -13,7 +14,7 @@ accounts.forEach(function (account) {
   account.username = username;
 });
 
-//napravi neki stejt user i u njega da imam balance, movements,
+//napravljen state.
 
 let userState = {
   balance: 0,
@@ -30,6 +31,9 @@ function calculateBalance(account) {
 
 function renderBalance() {
   userState.movements.push(-amount);
+  receiverAccount.movements.push(amount);
+  userState.balance = calculateBalance(currentAccount);
+
   DOM.totalBalance.textContent = balance + " €";
 }
 
@@ -94,8 +98,6 @@ DOM.transferBtn.addEventListener("click", function (event) {
   const receiverAccount = accounts.find(function (account) {
     return account.username === receiverUsername;
   });
-
-  const currentBalance = calculateBalance(currentAccount);
 
   if (
     receiverAccount &&
