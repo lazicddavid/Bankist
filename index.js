@@ -69,7 +69,8 @@ DOM.loginBtn.addEventListener("click", function (event) {
   });
 
   if (activeUser) {
-    currentAccount = activeUser;
+    userState.balance = currentAccount.movements;
+    userState.balance = calculateBalance(currentAccount);
 
     DOM.navBar.classList.add("hidden");
     DOM.dashboard.classList.remove("hidden");
