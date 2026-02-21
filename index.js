@@ -144,7 +144,6 @@ DOM.confirmYes.addEventListener("click", function () {
 
   // kad obrisem account - izbrisan je iz array
 
-  //loan , do 10,000$
   const index = accounts.findIndex(function (account) {
     return account.username === currentAccount.username;
   });
@@ -156,4 +155,20 @@ DOM.confirmYes.addEventListener("click", function () {
   DOM.navBar.classList.remove("hidden");
 
   currentAccount = null;
+});
+
+//loan , do 10,000$
+DOM.loanBtn.addEventListener("click", function (event) {
+  event.preventDefault();
+
+  const amount = Number(DOM.loanAmount.value);
+
+  if (amount > 0 && amount <= 10000) {
+    currentAccount.movements.push(amount);
+
+    renderTransactions();
+    renderBalance();
+  }
+
+  DOM.loanAmount.value = "";
 });
