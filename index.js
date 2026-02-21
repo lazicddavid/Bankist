@@ -79,6 +79,7 @@ DOM.loginBtn.addEventListener("click", function (event) {
   });
 
   if (activeUser) {
+    currentAccount = activeUser;
     userState.movements = currentAccount.movements;
 
     renderTransactions();
