@@ -27,14 +27,6 @@ function getBalance() {
   }, 0);
 }
 
-function calculateBalance(account) {
-  account.movements.forEach(function (movement) {
-    total += movement;
-  });
-
-  return total;
-}
-
 function renderBalance() {
   DOM.totalBalance.textContent = getBalance() + " €";
 }
@@ -42,7 +34,7 @@ function renderBalance() {
 function renderTransactions() {
   DOM.transactionList.innerHTML = "";
 
-  currentAccount.movements.forEach(function (movement, index) {
+  userState.movements.forEach(function (movement, index) {
     const type = movement > 0 ? "deposit" : "withdrawal";
 
     const html = `
