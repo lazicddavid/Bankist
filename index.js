@@ -145,10 +145,12 @@ DOM.confirmYes.addEventListener("click", function () {
   // kad obrisem account - izbrisan je iz array
 
   //loan , do 10,000$
-const index = accounts.find Index(function (account) {
-  return account.username === currentAccount.username;
-} );        
-accounts.splice(index, 1);
+  const index = accounts.findIndex(function (account) {
+    return account.username === currentAccount.username;
+  });
+
+  accounts.splice(index, 1);
+
   DOM.modal.classList.add("hidden");
   DOM.dashboard.classList.add("hidden");
   DOM.navBar.classList.remove("hidden");
