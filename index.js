@@ -19,7 +19,8 @@ const DOM = {
   confirmNo: document.querySelector(".confirm-no"),
 };
 
-let currentAccount;zz aaaaaa
+let currentAccount;
+
 accounts.forEach(function (account) {
   const initials = account.owner.toLowerCase().split(" ");
   let username = "";
@@ -34,8 +35,6 @@ accounts.forEach(function (account) {
 //napravi neki stejt user i u njega da imam balance, movements,
 
 function calculateBalance(account) {
-  let total = 0;
-
   account.movements.forEach(function (movement) {
     total += movement;
   });
