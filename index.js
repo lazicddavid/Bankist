@@ -101,6 +101,7 @@ DOM.transferBtn.addEventListener("click", function (event) {
     return account.username === receiverUsername;
   });
 
+  const currentBalance = getBalance();
   if (
     receiverAccount &&
     receiverAccount.username !== currentAccount.username &&
