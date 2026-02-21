@@ -21,6 +21,12 @@ let userState = {
   movements: [],
 };
 
+function getBalance() {
+  return userState.movements.reduce(function (totalBalance, movement) {
+    return totalBalance + movement;
+  }, 0);
+}
+
 function calculateBalance(account) {
   account.movements.forEach(function (movement) {
     total += movement;
@@ -73,11 +79,7 @@ DOM.loginBtn.addEventListener("click", function (event) {
   });
 
   if (activeUser) {
-    userState.balance = currentAccount.movements;
-    userState.balance = calculateBalance(currentAccount);
-
-    DOM.navBar.classList.add("hidden");
-    DOM.dashboard.classList.remove("hidden");
+    userState.movements = currentAccount.movements;
 
     renderTransactions();
     renderBalance();
