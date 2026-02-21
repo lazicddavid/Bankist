@@ -15,6 +15,8 @@ const DOM = {
   modal: document.querySelector(".modal"),
   confirmYes: document.querySelector(".confirm-yes"),
   confirmNo: document.querySelector(".confirm-no"),
+  loanBtn: document.querySelector(".loan-btn"),
+  loanAmount: document.querySelector(".loan-amount"),
 };
 
 export default DOM;
