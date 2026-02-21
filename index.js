@@ -141,18 +141,17 @@ DOM.closeBtn.addEventListener("click", function (event) {
 
 DOM.confirmYes.addEventListener("click", function () {
   if (!currentAccount) return;
-  //current account = null; kad obrisem account - izbrisan je iz array
+
+  // kad obrisem account - izbrisan je iz array
 
   //loan , do 10,000$
-  currentAccount.disabled = true;
-
+const index = accounts.find Index(function (account) {
+  return account.username === currentAccount.username;
+} );        
+accounts.splice(index, 1);
   DOM.modal.classList.add("hidden");
   DOM.dashboard.classList.add("hidden");
   DOM.navBar.classList.remove("hidden");
 
   currentAccount = null;
-});
-
-DOM.confirmNo.addEventListener("click", function () {
-  DOM.modal.classList.add("hidden");
 });
