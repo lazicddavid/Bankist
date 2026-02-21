@@ -29,7 +29,7 @@ function calculateBalance(account) {
 }
 
 function renderBalance() {
-  const balance = calculateBalance(currentAccount);
+  userState.movements.push(-amount);
   DOM.totalBalance.textContent = balance + " €";
 }
 
