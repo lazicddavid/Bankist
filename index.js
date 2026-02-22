@@ -1,5 +1,5 @@
 import accounts from "./account/accounts.js";
-//DOM elements pomereni u poseban fajl i exportovani.
+//DOM elements pomereni u poseban fajl.
 import DOM from "./constants.js";
 let currentAccount;
 
@@ -40,7 +40,7 @@ function renderTransactions() {
     const html = `
       <div class="movement">
         <div class="movement-type ${type}">
-          ${currentAccount.movements.length - index} ${type}
+         ${userState.movements.length - index} ${type}
         </div>
         <div class="movement-date">12/03/2020</div>
         <div class="movement-amount">${movement} €</div>
@@ -69,6 +69,9 @@ DOM.loginBtn.addEventListener("click", function (event) {
   if (activeUser) {
     currentAccount = activeUser;
     userState.movements = currentAccount.movements;
+
+    DOM.navBar.classList.add("hidden");
+    DOM.dashboard.classList.remove("hidden");
 
     renderTransactions();
     renderBalance();
@@ -150,14 +153,24 @@ DOM.confirmYes.addEventListener("click", function () {
 DOM.loanBtn.addEventListener("click", function (event) {
   event.preventDefault();
 
+  if (!currentAccount) return;
   const amount = Number(DOM.loanAmount.value);
 
   if (amount > 0 && amount <= 10000) {
     currentAccount.movements.push(amount);
+    userState.movements = currentAccount.movements;
 
     renderTransactions();
     renderBalance();
   }
 
   DOM.loanAmount.value = "";
+});
+
+DOM.logoutBtn.addEventListener("click", function () {
+  currentAccount = null;
+  userState.movements = [];
+
+  DOM.dashboard.classList.add("hidden");
+  DOM.navBar.classList.remove("hidden");
 });
