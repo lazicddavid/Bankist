@@ -258,5 +258,5 @@ input {
   padding: 8px 18px;
   border-radius: 8px;
   cursor: pointer;
-  margin: 0 10px;
+  align-items: center;
 }
