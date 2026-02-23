@@ -258,5 +258,6 @@ input {
   padding: 8px 18px;
   border-radius: 8px;
   cursor: pointer;
-  backdrop-filter: blur(4px);
 }
+
+button submit
