@@ -16,30 +16,37 @@ accounts.forEach(function (account) {
 //napravljen state.
 
 let userState = {
-  balance: 0,
-  movements: [],
+  currentAccount: null,
+  transferTo: "",
+  transferAmount: 0,
+
+  getBalance: function () {
+    if (!this.currentAccount) return 0;
+
+    return this.currentAccount.movements.reduce(function (
+      totalBalance,
+      movement,
+    ) {
+      return totalBalance + movement;
+    }, 0);
+  },
 };
 
-function getBalance() {
-  return userState.movements.reduce(function (totalBalance, movement) {
-    return totalBalance + movement;
-  }, 0);
-}
-
 function renderBalance() {
-  DOM.totalBalance.textContent = getBalance() + " €";
+  DOM.totalBalance.textContent = userState.getBalance() + " €";
 }
 
 function renderTransactions() {
+  if (!userState.currentAccount) return;
   DOM.transactionList.innerHTML = "";
 
-  userState.movements.forEach(function (movement, index) {
+  userState.currentAccount.movements.forEach(function (movement, index) {
     const type = movement > 0 ? "deposit" : "withdrawal";
 
     const html = `
       <div class="movement">
         <div class="movement-type ${type}">
-         ${userState.movements.length - index} ${type}
+    userState.currentAccount.movements ${type}
         </div>
         <div class="movement-date">12/03/2020</div>
         <div class="movement-amount">${movement} €</div>
@@ -54,28 +61,26 @@ function renderTransactions() {
 DOM.loginBtn.addEventListener("click", function (event) {
   event.preventDefault();
 
-  const enteredUser = DOM.inputUser.value.toLowerCase();
+  const enteredUsername = DOM.inputUser.value.toLowerCase();
   const enteredPin = Number(DOM.inputPin.value);
 
-  const activeUser = accounts.find(function (account) {
+  userState.currentAccount = accounts.find(function (account) {
     return (
-      account.username === enteredUser &&
+      account.username === enteredUsername &&
       account.pin === enteredPin &&
       !account.disabled
     );
   });
 
-  if (activeUser) {
-    currentAccount = activeUser;
-    userState.movements = currentAccount.movements;
-
+  if (userState.currentAccount) {
     DOM.navBar.classList.add("hidden");
     DOM.dashboard.classList.remove("hidden");
 
+    DOM.welcomeMessage.textContent =
+      "Zdravo, " + userState.currentAccount.owner;
+
     renderTransactions();
     renderBalance();
-  } else {
-    console.log("wrong username or pin");
   }
 
   DOM.inputUser.value = "";
@@ -86,23 +91,22 @@ DOM.loginBtn.addEventListener("click", function (event) {
 DOM.transferBtn.addEventListener("click", function (event) {
   event.preventDefault();
 
-  const receiverUsername = DOM.transferTo.value;
-  const amount = Number(DOM.transferAmount.value);
+  if (!userState.currentAccount) return;
 
   const receiverAccount = accounts.find(function (account) {
-    return account.username === receiverUsername;
+    return account.username === userState.transferReceiver;
   });
 
-  const currentBalance = getBalance();
   if (
     receiverAccount &&
-    receiverAccount.username !== currentAccount.username &&
-    amount > 0 &&
-    amount <= 10000 &&
-    currentBalance >= amount
+    receiverAccount.username !== userState.currentAccount.username &&
+    userState.transferAmount > 0 &&
+    userState.transferAmount <= 10000 &&
+    userState.getBalance() >= userState.transferAmount
   ) {
-    currentAccount.movements.push(-amount);
-    receiverAccount.movements.push(amount);
+    userState.currentAccount.movements.push(-userState.transferAmount);
+
+    receiverAccount.movements.push(userState.transferAmount);
 
     renderTransactions();
     renderBalance();
@@ -110,6 +114,9 @@ DOM.transferBtn.addEventListener("click", function (event) {
 
   DOM.transferTo.value = "";
   DOM.transferAmount.value = "";
+
+  userState.transferReceiver = "";
+  userState.transferAmount = 0;
 });
 
 DOM.closeBtn.addEventListener("click", function (event) {
@@ -153,12 +160,12 @@ DOM.confirmYes.addEventListener("click", function () {
 DOM.loanBtn.addEventListener("click", function (event) {
   event.preventDefault();
 
-  if (!currentAccount) return;
-  const amount = Number(DOM.loanAmount.value);
+  if (!userState.currentAccount) return;
 
-  if (amount > 0 && amount <= 10000) {
-    currentAccount.movements.push(amount);
-    userState.movements = currentAccount.movements;
+  const enteredAmount = Number(DOM.loanAmount.value);
+
+  if (enteredAmount > 0 && enteredAmount <= 10000) {
+    userState.currentAccount.movements.push(enteredAmount);
 
     renderTransactions();
     renderBalance();
@@ -166,10 +173,10 @@ DOM.loanBtn.addEventListener("click", function (event) {
 
   DOM.loanAmount.value = "";
 });
-
 DOM.logoutBtn.addEventListener("click", function () {
-  currentAccount = null;
-  userState.movements = [];
+  userState.currentAccount = null;
+  userState.transferReceiver = "";
+  userState.transferAmount = 0;
 
   DOM.dashboard.classList.add("hidden");
   DOM.navBar.classList.remove("hidden");
