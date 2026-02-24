@@ -260,3 +260,7 @@ input {
   cursor: pointer;
 }
 
+.confirm-no {
+  background: white;
+  border: none;
+}
