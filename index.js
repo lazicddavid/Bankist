@@ -87,6 +87,15 @@ DOM.loginBtn.addEventListener("click", function (event) {
   DOM.inputPin.value = "";
 });
 
+// TRANSFER INPUT LISTENERI
+DOM.transferTo.addEventListener("input", function (event) {
+  userState.transferReceiver = event.target.value;
+});
+
+DOM.transferAmount.addEventListener("input", function (event) {
+  userState.transferAmount = Number(event.target.value);
+});
+
 //transf. novca
 DOM.transferBtn.addEventListener("click", function (event) {
   event.preventDefault();
@@ -118,18 +127,17 @@ DOM.transferBtn.addEventListener("click", function (event) {
   userState.transferReceiver = "";
   userState.transferAmount = 0;
 });
-
 DOM.closeBtn.addEventListener("click", function (event) {
   event.preventDefault();
 
-  if (!currentAccount) return;
+  if (!userState.currentAccount) return;
 
   const enteredUser = DOM.closeUser.value;
   const enteredPin = Number(DOM.closePin.value);
 
   if (
-    enteredUser === currentAccount.username &&
-    enteredPin === currentAccount.pin
+    enteredUser === userState.currentAccount.username &&
+    enteredPin === userState.currentAccount.pin
   ) {
     DOM.modal.classList.remove("hidden");
   }
@@ -139,7 +147,7 @@ DOM.closeBtn.addEventListener("click", function (event) {
 });
 
 DOM.confirmYes.addEventListener("click", function () {
-  if (!currentAccount) return;
+  if (!userState.currentAccount) return;
 
   // kad obrisem account - izbrisan je iz array
 
@@ -173,6 +181,8 @@ DOM.loanBtn.addEventListener("click", function (event) {
 
   DOM.loanAmount.value = "";
 });
+
+// LOGOUT
 DOM.logoutBtn.addEventListener("click", function () {
   userState.currentAccount = null;
   userState.transferReceiver = "";
