@@ -1,7 +1,6 @@
 import accounts from "./account/accounts.js";
 //DOM elements pomereni u poseban fajl.
 import DOM from "./constants.js";
-let currentAccount;
 
 accounts.forEach(function (account) {
   const initials = account.owner.toLowerCase().split(" ");
@@ -46,7 +45,7 @@ function renderTransactions() {
         <div class="movement-amount">${movement} €</div>
       </div>
     `;
-
+    //od 37 do 40 u poseban fajl.
     DOM.transactionList.insertAdjacentHTML("afterbegin", html);
   });
 }
@@ -82,8 +81,6 @@ DOM.loginBtn.addEventListener("click", function (event) {
   DOM.inputUser.value = "";
   DOM.inputPin.value = "";
 });
-
-DOM;
 
 //transf. novca
 DOM.transferBtn.addEventListener("click", function (event) {
