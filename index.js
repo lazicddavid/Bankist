@@ -46,7 +46,7 @@ function renderTransactions() {
     const html = `
       <div class="movement">
         <div class="movement-type ${type}">
-    userState.currentAccount.movements ${type}
+ ${userState.currentAccount.movements.length - index} ${type}
         </div>
         <div class="movement-date">12/03/2020</div>
         <div class="movement-amount">${movement} €</div>
