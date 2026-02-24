@@ -82,6 +82,9 @@ DOM.loginBtn.addEventListener("click", function (event) {
   DOM.inputUser.value = "";
   DOM.inputPin.value = "";
 });
+
+DOM;
+
 //transf. novca
 DOM.transferBtn.addEventListener("click", function (event) {
   event.preventDefault();
