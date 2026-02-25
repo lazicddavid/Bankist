@@ -17,22 +17,18 @@ accounts.forEach(function (account) {
 
 let userState = {
   currentAccount: null,
-  transferTo: "",
-  transferAmount: 0,
 
   getBalance: function () {
     if (!this.currentAccount) return 0;
 
     return this.currentAccount.movements.reduce(function (
       totalBalance,
-      movement
+      movement,
     ) {
       return totalBalance + movement;
     }, 0);
   },
 };
-
-
 
 //pozdrav poruka.
 function renderGreeting() {
@@ -52,7 +48,6 @@ function renderGreeting() {
   DOM.welcomeMessage.textContent =
     greetingText + ", " + userState.currentAccount.owner;
 }
-
 
 function renderBalance() {
   DOM.totalBalance.textContent = userState.getBalance() + " €";
@@ -98,10 +93,8 @@ DOM.loginBtn.addEventListener("click", function (event) {
     DOM.navBar.classList.add("hidden");
     DOM.dashboard.classList.remove("hidden");
 
-    DOM.welcomeMessage.textContent =
- renderGreeting();
-renderCurrentDateTime();
-
+    renderGreeting();
+    renderCurrentDateTime();
 
     renderTransactions();
     renderBalance();
@@ -126,8 +119,11 @@ DOM.transferBtn.addEventListener("click", function (event) {
 
   if (!userState.currentAccount) return;
 
+  const receiverUsername = DOM.transferTo.value;
+  const transferAmount = Number(DOM.transferAmount.value);
+
   const receiverAccount = accounts.find(function (account) {
-    return account.username === userState.transferReceiver;
+    return account.username === receiverUsername;
   });
 
   if (
@@ -137,9 +133,9 @@ DOM.transferBtn.addEventListener("click", function (event) {
     userState.transferAmount <= 10000 &&
     userState.getBalance() >= userState.transferAmount
   ) {
-    userState.currentAccount.movements.push(-userState.transferAmount);
+    userState.currentAccount.movements.push(-transferAmount);
 
-    receiverAccount.movements.push(userState.transferAmount);
+    receiverAccount.movements.push(transferAmount);
 
     renderTransactions();
     renderBalance();
@@ -147,27 +143,8 @@ DOM.transferBtn.addEventListener("click", function (event) {
 
   DOM.transferTo.value = "";
   DOM.transferAmount.value = "";
-
-  userState.transferReceiver = "";
-  userState.transferAmount = 0;
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function renderCurrentDateTime() {
   const now = new Date();
 
@@ -179,51 +156,10 @@ function renderCurrentDateTime() {
   const minutes = String(now.getMinutes()).padStart(2, "0");
 
   const formattedDateTime =
-    day +
-    "/" +
-    month +
-    "/" +
-    year +
-    ", " +
-    hours +
-    ":" +
-    minutes;
+    day + "/" + month + "/" + year + ", " + hours + ":" + minutes;
 
-  DOM.currentDate.textContent =
-    "As of " + formattedDateTime;
-
-
-
-
-
-
-
-
-function renderCurrentDateTime() {
-  const now = new Date();
-
-  const day = String(now.getDate()).padStart(2, "0");
-  const month = String(now.getMonth() + 1).padStart(2, "0");
-  const year = now.getFullYear();
-
-  const hours = String(now.getHours()).padStart(2, "0");
-  const minutes = String(now.getMinutes()).padStart(2, "0");
-
-  const formattedDateTime =
-    day +
-    "/" +
-    month +
-    "/" +
-    year +
-    ", " +
-    hours +
-    ":" +
-    minutes;
-
-  DOM.currentDate.textContent =
-    "As of " + formattedDateTime;
-
-
+  DOM.currentDate.textContent = "As of " + formattedDateTime;
+}
 
 DOM.closeBtn.addEventListener("click", function (event) {
   event.preventDefault();
