@@ -28,15 +28,29 @@
       </div>
     </div>
 
-    <div class="layout layout-dashboard hidden">
-      <div class="current-balance">
-        <div>
-          <h3 class="main-title">Current balance</h3>
-          <span class="date-time">As of 2/4/2026, 8:25 PM</span>
-        </div>
-        <div class="total-balance"></div>
-      </div>
+    Odlično. Evo TAČNO gde ide — bez traženja. 📍 GDE U HTML? Ovaj blok ide: 👉
+    Unutar dashboard dela 👉 IZNAD liste transakcija 👉 Pre .transactions
+    sekcije Znači struktura treba da izgleda otprilike ovako:
 
+    <div class="layout-dashboard hidden">
+      <!-- 🔽 OVDЕ IDE HEADER -->
+      <div class="header">
+        <div class="header-left">
+          <h2 class="welcome"></h2>
+          <div class="balance-info">
+            <p class="label">Current balance</p>
+            <p class="date"></p>
+          </div>
+        </div>
+
+        <div class="header-right">
+          <p class="balance"></p>
+        </div>
+      </div>
+      <!-- 🔼 HEADER SE ZAVRŠAVA -->
+
+      <!-- 🔽 OVDЕ VЕĆ IMAŠ TRANSAKCIJE -->
+      <div class="transactions"></div>
       <div class="dashboard">
         <section class="movements transactions"></section>
 
