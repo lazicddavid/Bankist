@@ -263,4 +263,6 @@ input {
 .header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  padding: 40px 60px;
 }
