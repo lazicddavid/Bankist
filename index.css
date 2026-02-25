@@ -279,3 +279,10 @@ input {
   font-weight: 500;
   color: #333;
 }
+
+.balance-info .label {
+  font-size: 18px;
+  font-weight: 600;
+  color: #444;
+  margin: 0;
+}
