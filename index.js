@@ -77,7 +77,7 @@ DOM.loginBtn.addEventListener("click", function (event) {
     DOM.dashboard.classList.remove("hidden");
 
     DOM.welcomeMessage.textContent =
-      "Zdravo, " + userState.currentAccount.owner;
+      renderGreting();
 
     renderTransactions();
     renderBalance();
