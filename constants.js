@@ -20,6 +20,7 @@ const DOM = {
   logoutBtn: document.querySelector(".logout-btn"),
   welcomeMessage: document.querySelector(".welcome"),
   currentDate: document.querySelector(".date"),
+  currentDate: document.querySelector(".date"),
 };
 
 export default DOM;
