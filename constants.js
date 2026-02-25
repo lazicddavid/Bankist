@@ -2,22 +2,30 @@ const DOM = {
   loginBtn: document.querySelector(".login-btn"),
   navBar: document.querySelector(".nav-bar"),
   dashboard: document.querySelector(".layout-dashboard"),
+
   inputUser: document.querySelector(".login-user"),
   inputPin: document.querySelector(".login-pin"),
+
   transferBtn: document.querySelector(".transfer-btn"),
   transferTo: document.querySelector(".transfer-to"),
   transferAmount: document.querySelector(".transfer-amount"),
+
   transactionList: document.querySelector(".transactions"),
   totalBalance: document.querySelector(".balance"),
+
   closeBtn: document.querySelector(".close-btn"),
   closeUser: document.querySelector(".close-user"),
   closePin: document.querySelector(".close-pin"),
+
   modal: document.querySelector(".modal"),
   confirmYes: document.querySelector(".confirm-yes"),
   confirmNo: document.querySelector(".confirm-no"),
+
   loanBtn: document.querySelector(".loan-btn"),
   loanAmount: document.querySelector(".loan-amount"),
+
   logoutBtn: document.querySelector(".logout-btn"),
+
   welcomeMessage: document.querySelector(".welcome"),
   currentDate: document.querySelector(".date"),
 };
