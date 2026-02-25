@@ -84,6 +84,11 @@ input {
   display: block;
 }
 
+.layout-dashboard {
+  display: grid;
+  grid-template-columns: 2.5fr 1fr;
+  gap: 30px;
+}
 .current-balance {
   display: flex;
   justify-content: space-between;
