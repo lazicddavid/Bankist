@@ -32,6 +32,29 @@ let userState = {
   },
 };
 
+
+
+//pozdrav poruka.
+function renderGreeting() {
+  if (!userState.currentAccount) return;
+
+  const currentHour = new Date().getHours();
+  let greetingText = "";
+
+  if (currentHour < 12) {
+    greetingText = "Good morning";
+  } else if (currentHour < 18) {
+    greetingText = "Good afternoon";
+  } else {
+    greetingText = "Good evening";
+  }
+
+  DOM.welcomeMessage.textContent =
+    greetingText + ", " + userState.currentAccount.owner;
+}
+
+
+
 function renderBalance() {
   DOM.totalBalance.textContent = userState.getBalance() + " €";
 }
