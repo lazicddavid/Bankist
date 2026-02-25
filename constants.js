@@ -18,6 +18,7 @@ const DOM = {
   loanBtn: document.querySelector(".loan-btn"),
   loanAmount: document.querySelector(".loan-amount"),
   logoutBtn: document.querySelector(".logout-btn"),
+  welcomeMessage: document.querySelector(".welcome"),
 };
 
 export default DOM;
