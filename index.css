@@ -79,6 +79,11 @@ input {
   gap: 30px;
 }
 
+.layout-dashboard > .movements,
+.layout-dashboard > .actions {
+  display: block;
+}
+
 .current-balance {
   display: flex;
   justify-content: space-between;
