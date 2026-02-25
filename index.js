@@ -25,7 +25,7 @@ let userState = {
 
     return this.currentAccount.movements.reduce(function (
       totalBalance,
-      movement,
+      movement
     ) {
       return totalBalance + movement;
     }, 0);
@@ -52,7 +52,6 @@ function renderGreeting() {
   DOM.welcomeMessage.textContent =
     greetingText + ", " + userState.currentAccount.owner;
 }
-
 
 
 function renderBalance() {
@@ -100,7 +99,9 @@ DOM.loginBtn.addEventListener("click", function (event) {
     DOM.dashboard.classList.remove("hidden");
 
     DOM.welcomeMessage.textContent =
-      renderGreting();
+ renderGreeting();
+renderCurrentDateTime();
+
 
     renderTransactions();
     renderBalance();
@@ -249,7 +250,7 @@ DOM.confirmYes.addEventListener("click", function () {
   // kad obrisem account - izbrisan je iz array
 
   const index = accounts.findIndex(function (account) {
-    return account.username === currentAccount.username;
+    return account.username === userState.currentAccount.username;
   });
 
   accounts.splice(index, 1);
