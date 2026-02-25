@@ -8,7 +8,7 @@ const DOM = {
   transferTo: document.querySelector(".transfer-to"),
   transferAmount: document.querySelector(".transfer-amount"),
   transactionList: document.querySelector(".transactions"),
-  totalBalance: document.querySelector(".total-balance"),
+  totalBalance: document.querySelector(".balance"),
   closeBtn: document.querySelector(".close-btn"),
   closeUser: document.querySelector(".close-user"),
   closePin: document.querySelector(".close-pin"),
@@ -19,7 +19,6 @@ const DOM = {
   loanAmount: document.querySelector(".loan-amount"),
   logoutBtn: document.querySelector(".logout-btn"),
   welcomeMessage: document.querySelector(".welcome"),
-  currentDate: document.querySelector(".date"),
   currentDate: document.querySelector(".date"),
 };
 
