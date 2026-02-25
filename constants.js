@@ -19,6 +19,7 @@ const DOM = {
   loanAmount: document.querySelector(".loan-amount"),
   logoutBtn: document.querySelector(".logout-btn"),
   welcomeMessage: document.querySelector(".welcome"),
+  currentDate: document.querySelector(".date"),
 };
 
 export default DOM;
