@@ -119,7 +119,7 @@ DOM.transferBtn.addEventListener("click", function (event) {
 
   if (!userState.currentAccount) return;
 
-  const receiverUsername = DOM.transferTo.value;
+  const receiverUsername = DOM.transferTo.value.toLowerCase();
   const transferAmount = Number(DOM.transferAmount.value);
 
   const receiverAccount = accounts.find(function (account) {
