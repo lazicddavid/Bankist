@@ -314,8 +314,9 @@ input {
 }
 
 .summary {
+  align-items: center;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   gap: 40px;
   padding: 20px 10px;
   font-weight: 600;
@@ -336,4 +337,35 @@ input {
 
 .summary-value {
   font-size: 20px;
+}
+
+.logout-btn {
+  align-self: center;
+  margin-top: 20px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  background-color: #e53935;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background-color: #c62828;
+}
+
+.sort-box {
+  display: flex;
+  gap: 10px;
+}
+
+.sort-btn {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  background: #222;
+  color: white;
+  font-size: 13px;
 }

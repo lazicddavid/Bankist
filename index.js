@@ -17,7 +17,7 @@ accounts.forEach(function (account) {
 
 let userState = {
   currentAccount: null,
-
+  isSortedAscending: false,
   getBalance: function () {
     if (!this.currentAccount) return 0;
 
@@ -30,7 +30,7 @@ let userState = {
   },
 };
 
-//pozdrav poruka.
+//pozdrav poruka.u hederu
 function renderGreeting() {
   if (!userState.currentAccount) return;
 
@@ -55,22 +55,33 @@ function renderBalance() {
 
 function renderTransactions() {
   if (!userState.currentAccount) return;
+
   DOM.transactionList.innerHTML = "";
 
-  userState.currentAccount.movements.forEach(function (movement, index) {
+  let movements = userState.currentAccount.movements.slice();
+
+  if (userState.isSortedAscending) {
+    movements.sort(function (a, b) {
+      return a - b;
+    });
+  } else {
+    movements.sort(function (a, b) {
+      return b - a;
+    });
+  }
+  movements.forEach(function (movement, index) {
     const type = movement > 0 ? "deposit" : "withdrawal";
 
     const html = `
       <div class="movement">
         <div class="movement-type ${type}">
- ${userState.currentAccount.movements.length - index} ${type}
+          ${movements.length - index} ${type}
         </div>
         <div class="movement-date">12/03/2020</div>
         <div class="movement-amount">${movement} €</div>
       </div>
     `;
-    //od 37 do 40 u poseban fajl.
-    DOM.transactionList.insertAdjacentHTML("afterbegin", html);
+    DOM.transactionList.insertAdjacentHTML("beforeend", html);
   });
 }
 
@@ -130,14 +141,6 @@ DOM.loginBtn.addEventListener("click", function (event) {
   DOM.inputPin.value = "";
 });
 
-DOM.transferTo.addEventListener("input", function (event) {
-  userState.transferReceiver = event.target.value;
-});
-
-DOM.transferAmount.addEventListener("input", function (event) {
-  userState.transferAmount = Number(event.target.value);
-});
-
 //transf. novca
 DOM.transferBtn.addEventListener("click", function (event) {
   event.preventDefault();
@@ -154,9 +157,9 @@ DOM.transferBtn.addEventListener("click", function (event) {
   if (
     receiverAccount &&
     receiverAccount.username !== userState.currentAccount.username &&
-    userState.transferAmount > 0 &&
-    userState.transferAmount <= 10000 &&
-    userState.getBalance() >= userState.transferAmount
+    transferAmount > 0 &&
+    transferAmount <= 10000 &&
+    userState.getBalance() >= transferAmount
   ) {
     userState.currentAccount.movements.push(-transferAmount);
 
@@ -220,8 +223,7 @@ DOM.confirmYes.addEventListener("click", function () {
   DOM.modal.classList.add("hidden");
   DOM.dashboard.classList.add("hidden");
   DOM.navBar.classList.remove("hidden");
-
-  currentAccount = null;
+  userState.currentAccount = null;
 });
 
 //loan , do 10,000$
@@ -243,10 +245,19 @@ DOM.loanBtn.addEventListener("click", function (event) {
   DOM.loanAmount.value = "";
 });
 
+DOM.lowestBtn.addEventListener("click", function () {
+  userState.isSortedAscending = true;
+  renderTransactions();
+});
+
+DOM.highestBtn.addEventListener("click", function () {
+  userState.isSortedAscending = false;
+  renderTransactions();
+});
+
 DOM.logoutBtn.addEventListener("click", function () {
   userState.currentAccount = null;
-  userState.transferReceiver = "";
-  userState.transferAmount = 0;
+  userState.isSortedAscending = false;
 
   DOM.dashboard.classList.add("hidden");
   DOM.navBar.classList.remove("hidden");

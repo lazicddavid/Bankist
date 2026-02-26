@@ -20,6 +20,11 @@ const DOM = {
   logoutBtn: document.querySelector(".logout-btn"),
   welcomeMessage: document.querySelector(".welcome"),
   currentDate: document.querySelector(".date"),
+  moneyIn: document.querySelector("#money-in"),
+  moneyOut: document.querySelector("#money-out"),
+  sortBtn: document.querySelector(".sort-btn"),
+  lowestBtn: document.querySelector(".lowest-btn"),
+  highestBtn: document.querySelector(".highest-btn"),
 };
 
 export default DOM;
