@@ -104,7 +104,6 @@ DOM.loginBtn.addEventListener("click", function (event) {
   DOM.inputPin.value = "";
 });
 
-// TRANSFER INPUT LISTENERI
 DOM.transferTo.addEventListener("input", function (event) {
   userState.transferReceiver = event.target.value;
 });
@@ -216,7 +215,6 @@ DOM.loanBtn.addEventListener("click", function (event) {
   DOM.loanAmount.value = "";
 });
 
-// LOGOUT
 DOM.logoutBtn.addEventListener("click", function () {
   userState.currentAccount = null;
   userState.transferReceiver = "";
