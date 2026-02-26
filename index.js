@@ -74,6 +74,31 @@ function renderTransactions() {
   });
 }
 
+function renderSummary() {
+  if (!userState.currentAccount) return;
+
+  const movements = userState.currentAccount.movements;
+
+  const moneyIn = movements
+    .filter(function (movement) {
+      return movement > 0;
+    })
+    .reduce(function (total, movement) {
+      return total + movement;
+    }, 0);
+
+  const moneyOut = movements
+    .filter(function (movement) {
+      return movement < 0;
+    })
+    .reduce(function (total, movement) {
+      return total + movement;
+    }, 0);
+
+  DOM.moneyIn.textContent = moneyIn + " €";
+  DOM.moneyOut.textContent = Math.abs(moneyOut) + " €";
+}
+
 //login //listener
 DOM.loginBtn.addEventListener("click", function (event) {
   event.preventDefault();
@@ -98,6 +123,7 @@ DOM.loginBtn.addEventListener("click", function (event) {
 
     renderTransactions();
     renderBalance();
+    renderSummary();
   }
 
   DOM.inputUser.value = "";
@@ -138,6 +164,7 @@ DOM.transferBtn.addEventListener("click", function (event) {
 
     renderTransactions();
     renderBalance();
+    renderSummary();
   }
 
   DOM.transferTo.value = "";
@@ -210,6 +237,7 @@ DOM.loanBtn.addEventListener("click", function (event) {
 
     renderTransactions();
     renderBalance();
+    renderSummary();
   }
 
   DOM.loanAmount.value = "";
