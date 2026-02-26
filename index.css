@@ -312,3 +312,28 @@ input {
   color: #222;
   margin: 0;
 }
+
+.summary {
+  display: flex;
+  justify-content: flex-end;
+  gap: 40px;
+  padding: 20px 10px;
+  font-weight: 600;
+}
+
+.summary-label {
+  margin-right: 8px;
+  font-size: 14px;
+}
+
+.summary-label.in {
+  color: #43a047;
+}
+
+.summary-label.out {
+  color: #e53935;
+}
+
+.summary-value {
+  font-size: 20px;
+}
