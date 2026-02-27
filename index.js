@@ -262,3 +262,21 @@ DOM.logoutBtn.addEventListener("click", function () {
   DOM.dashboard.classList.add("hidden");
   DOM.navBar.classList.remove("hidden");
 });
+
+const acc = accounts[0];
+console.log("acc", acc);
+console.log("accounts", accounts);
+
+acc.owner = "David Lazic";
+console.log("--------------");
+console.log("acc", acc);
+console.log("accounts", accounts);
+
+//napravi da se pojavljuju notifikacije u sledecem slucaju:
+//error notifikacija ako je pogresan username ili password (invalid credentials)
+//error nofitifkacija ako je username ne postoji (accounnt not found)
+//error nofitifikacija ako stavim transfer ka accoun-u koji ne postoji (account not found)
+//error nofitifikacija ako radim transfer vise nego sto imam para(can not make transfer)
+//uspesna notifikacija kad uspesno posaljem transfer
+//uspesna notifikacija kad uspesno uzmem kredit
+//error notifikacija ako uzimam vise od 10,000 $
