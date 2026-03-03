@@ -263,6 +263,7 @@ DOM.logoutBtn.addEventListener("click", function () {
   DOM.navBar.classList.remove("hidden");
 });
 
+/*
 const acc = accounts[0];
 console.log("acc", acc);
 console.log("accounts", accounts);
@@ -271,6 +272,14 @@ acc.owner = "David Lazic";
 console.log("--------------");
 console.log("acc", acc);
 console.log("accounts", accounts);
+*/
+
+Toastify({
+  text: "Transfer successful!",
+  duration: 2000,
+}).showToast();
+
+//listener dodaj !
 
 //napravi da se pojavljuju notifikacije u sledecem slucaju:
 //error notifikacija ako je pogresan username ili password (invalid credentials)

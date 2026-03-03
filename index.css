@@ -111,7 +111,6 @@ input {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  justify-content: baseline;
 }
 
 .card {
@@ -359,6 +358,7 @@ input {
 .sort-box {
   display: flex;
   gap: 10px;
+  gap: 20px;
 }
 
 .sort-btn {
