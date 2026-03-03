@@ -358,10 +358,6 @@ input {
 .sort-box {
   display: flex;
   gap: 10px;
-  gap: 20px;
-  justify-content: center;
-  display: flex;
-  opacity: 1;
 }
 
 .sort-btn {
@@ -372,4 +368,5 @@ input {
   background: #222;
   color: white;
   font-size: 13px;
+  font-weight: 200;
 }
