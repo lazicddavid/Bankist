@@ -361,6 +361,7 @@ input {
   gap: 20px;
   justify-content: center;
   display: flex;
+  opacity: 1;
 }
 
 .sort-btn {
