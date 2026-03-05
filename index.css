@@ -368,5 +368,7 @@ input {
   background: #222;
   color: white;
   font-size: 13px;
-  color: black;
+}
+
+.toast-success {
 }

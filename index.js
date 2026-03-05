@@ -141,6 +141,32 @@ DOM.loginBtn.addEventListener("click", function (event) {
   DOM.inputPin.value = "";
 });
 
+function showError(message) {
+  Toastify({
+    text: message,
+    duration: 3000,
+    gravity: "top",
+    position: "right",
+    style: {
+      background: "#e74c3c",
+      color: "#fff",
+    },
+  }).showToast();
+}
+
+function showSuccess(message) {
+  Toastify({
+    text: message,
+    duration: 3000,
+    gravity: "top",
+    position: "right",
+    style: {
+      background: "#27ae60",
+      color: "#fff",
+    },
+  }).showToast();
+}
+
 //transf. novca
 DOM.transferBtn.addEventListener("click", function (event) {
   event.preventDefault();
