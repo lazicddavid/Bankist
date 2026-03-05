@@ -174,24 +174,28 @@ DOM.transferBtn.addEventListener("click", function (event) {
     return account.username === receiverUsername;
   });
 
-if (!receiverAccount) {
-  showError("Account not found");
-} else if (receiverAccount.username === userState.currentAccount.username) {
-  showError("Account not found");
-} else if (transferAmount <= 0) {
-  showError("Cannot make transfer");
-} else if (userState.getBalance() < transferAmount) {
-  showError("Cannot make transfer - insufficient balance");
-} else {
-  userState.currentAccount.movements.push(-transferAmount);
-  receiverAccount.movements.push(transferAmount);
+  if (!receiverAccount) {
+    showError("Account not found");
+  } else if (receiverAccount.username === userState.currentAccount.username) {
+    showError("Account not found");
+  } else if (transferAmount <= 0) {
+    showError("Cannot make transfer");
+  } else if (userState.getBalance() < transferAmount) {
+    showError("Cannot make transfer - insufficient balance");
+  } else {
+    userState.currentAccount.movements.push(-transferAmount);
+    receiverAccount.movements.push(transferAmount);
 
-  renderTransactions();
-  renderBalance();
-  renderSummary();
+    renderTransactions();
+    renderBalance();
+    renderSummary();
 
-  showSuccess("Transfer completed successfully");
-}
+    showSuccess("Transfer completed successfully");
+  }
+
+  DOM.transferTo.value = "";
+  DOM.transferAmount.value = "";
+});
 
 function renderCurrentDateTime() {
   const now = new Date();
@@ -253,17 +257,17 @@ DOM.loanBtn.addEventListener("click", function (event) {
 
   const enteredAmount = Number(DOM.loanAmount.value);
 
-if (enteredAmount > 10000) {
-  showError("Loan limit exceeded (max $10,000)");
-} else if (enteredAmount > 0) {
-  userState.currentAccount.movements.push(enteredAmount);
+  if (enteredAmount > 10000) {
+    showError("Loan limit exceeded (max $10,000)");
+  } else if (enteredAmount > 0) {
+    userState.currentAccount.movements.push(enteredAmount);
 
-  renderTransactions();
-  renderBalance();
-  renderSummary();
+    renderTransactions();
+    renderBalance();
+    renderSummary();
 
-  showSuccess("Loan approved");
-}
+    showSuccess("Loan approved");
+  }
 
   DOM.loanAmount.value = "";
 });
@@ -296,7 +300,6 @@ console.log("--------------");
 console.log("acc", acc);
 console.log("accounts", accounts);
 */
-
 
 //listener dodaj !
 
