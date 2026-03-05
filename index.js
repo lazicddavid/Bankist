@@ -110,7 +110,7 @@ function renderSummary() {
   DOM.moneyOut.textContent = Math.abs(moneyOut) + " €";
 }
 
-//login //listener
+//login
 DOM.loginBtn.addEventListener("click", function (event) {
   event.preventDefault();
 
@@ -130,6 +130,8 @@ DOM.loginBtn.addEventListener("click", function (event) {
 
     DOM.navBar.classList.add("hidden");
     DOM.dashboard.classList.remove("hidden");
+
+    showSuccess("Login successful");
 
     renderGreeting();
     renderCurrentDateTime();
@@ -258,7 +260,7 @@ DOM.loanBtn.addEventListener("click", function (event) {
   const enteredAmount = Number(DOM.loanAmount.value);
 
   if (enteredAmount > 10000) {
-    showError("Loan limit exceeded (max $10,000)");
+    showError("Loan limit: max $10,000");
   } else if (enteredAmount > 0) {
     userState.currentAccount.movements.push(enteredAmount);
 
@@ -290,19 +292,6 @@ DOM.logoutBtn.addEventListener("click", function () {
   DOM.navBar.classList.remove("hidden");
 });
 
-/*
-const acc = accounts[0];
-console.log("acc", acc);
-console.log("accounts", accounts);
-
-acc.owner = "David Lazic";
-console.log("--------------");
-console.log("acc", acc);
-console.log("accounts", accounts);
-*/
-
-//listener dodaj !
-
 //napravi da se pojavljuju notifikacije u sledecem slucaju:
 //error notifikacija ako je pogresan username ili password (invalid credentials)
 //error nofitifkacija ako je username ne postoji (accounnt not found)
@@ -311,3 +300,6 @@ console.log("accounts", accounts);
 //uspesna notifikacija kad uspesno posaljem transfer
 //uspesna notifikacija kad uspesno uzmem kredit
 //error notifikacija ako uzimam vise od 10,000 $
+
+//logout   posle 5 min.
+//set timeout, set interval
