@@ -117,21 +117,22 @@ DOM.loginBtn.addEventListener("click", function (event) {
   const enteredUsername = DOM.inputUser.value.toLowerCase();
   const enteredPin = Number(DOM.inputPin.value);
 
-  userState.currentAccount = accounts.find(function (account) {
-    return (
-      account.username === enteredUsername &&
-      account.pin === enteredPin &&
-      !account.disabled
-    );
+  const foundAccount = accounts.find(function (account) {
+    return account.username === enteredUsername && !account.disabled;
   });
 
-  if (userState.currentAccount) {
+  if (!foundAccount) {
+    showError("Account not found");
+  } else if (foundAccount.pin !== enteredPin) {
+    showError("Invalid username or password");
+  } else {
+    userState.currentAccount = foundAccount;
+
     DOM.navBar.classList.add("hidden");
     DOM.dashboard.classList.remove("hidden");
 
     renderGreeting();
     renderCurrentDateTime();
-
     renderTransactions();
     renderBalance();
     renderSummary();
@@ -147,10 +148,7 @@ function showError(message) {
     duration: 3000,
     gravity: "top",
     position: "right",
-    style: {
-      background: "#e74c3c",
-      color: "#fff",
-    },
+    className: "toast-error",
   }).showToast();
 }
 
@@ -160,13 +158,9 @@ function showSuccess(message) {
     duration: 3000,
     gravity: "top",
     position: "right",
-    style: {
-      background: "#27ae60",
-      color: "#fff",
-    },
+    className: "toast-success",
   }).showToast();
 }
-
 //transf. novca
 DOM.transferBtn.addEventListener("click", function (event) {
   event.preventDefault();
@@ -180,25 +174,24 @@ DOM.transferBtn.addEventListener("click", function (event) {
     return account.username === receiverUsername;
   });
 
-  if (
-    receiverAccount &&
-    receiverAccount.username !== userState.currentAccount.username &&
-    transferAmount > 0 &&
-    transferAmount <= 10000 &&
-    userState.getBalance() >= transferAmount
-  ) {
-    userState.currentAccount.movements.push(-transferAmount);
+if (!receiverAccount) {
+  showError("Account not found");
+} else if (receiverAccount.username === userState.currentAccount.username) {
+  showError("Account not found");
+} else if (transferAmount <= 0) {
+  showError("Cannot make transfer");
+} else if (userState.getBalance() < transferAmount) {
+  showError("Cannot make transfer - insufficient balance");
+} else {
+  userState.currentAccount.movements.push(-transferAmount);
+  receiverAccount.movements.push(transferAmount);
 
-    receiverAccount.movements.push(transferAmount);
+  renderTransactions();
+  renderBalance();
+  renderSummary();
 
-    renderTransactions();
-    renderBalance();
-    renderSummary();
-  }
-
-  DOM.transferTo.value = "";
-  DOM.transferAmount.value = "";
-});
+  showSuccess("Transfer completed successfully");
+}
 
 function renderCurrentDateTime() {
   const now = new Date();
@@ -260,13 +253,17 @@ DOM.loanBtn.addEventListener("click", function (event) {
 
   const enteredAmount = Number(DOM.loanAmount.value);
 
-  if (enteredAmount > 0 && enteredAmount <= 10000) {
-    userState.currentAccount.movements.push(enteredAmount);
+if (enteredAmount > 10000) {
+  showError("Loan limit exceeded (max $10,000)");
+} else if (enteredAmount > 0) {
+  userState.currentAccount.movements.push(enteredAmount);
 
-    renderTransactions();
-    renderBalance();
-    renderSummary();
-  }
+  renderTransactions();
+  renderBalance();
+  renderSummary();
+
+  showSuccess("Loan approved");
+}
 
   DOM.loanAmount.value = "";
 });
@@ -300,10 +297,6 @@ console.log("acc", acc);
 console.log("accounts", accounts);
 */
 
-Toastify({
-  text: "Transfer successful!",
-  duration: 2000,
-}).showToast();
 
 //listener dodaj !
 
