@@ -30,6 +30,12 @@ let userState = {
   },
 };
 
+function logoutTimer() {
+let time = 300;
+const timer 
+
+
+
 //pozdrav poruka.u hederu
 function renderGreeting() {
   if (!userState.currentAccount) return;
