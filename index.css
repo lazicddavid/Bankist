@@ -385,3 +385,14 @@ input {
   font-weight: 500;
   padding: 12px 16px;
 }
+
+.logout-timer {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #444;
+  background-color: #f3f3f3;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  min-width: 55px;
+  text-align: center;
+}

@@ -155,10 +155,10 @@ DOM.loginBtn.addEventListener("click", function (event) {
     renderTransactions();
     renderBalance();
     renderSummary();
-  }
-  clearInterval(timer);
-  timer = logoutTimer();
 
+    clearInterval(timer);
+    timer = logoutTimer();
+  }
   DOM.inputUser.value = "";
   DOM.inputPin.value = "";
 });
@@ -210,6 +210,8 @@ DOM.transferBtn.addEventListener("click", function (event) {
     renderTransactions();
     renderBalance();
     renderSummary();
+    clearInterval(timer);
+    timer = logoutTimer();
 
     showSuccess("Transfer completed successfully");
   }
@@ -286,7 +288,8 @@ DOM.loanBtn.addEventListener("click", function (event) {
     renderTransactions();
     renderBalance();
     renderSummary();
-
+    clearInterval(timer);
+    timer = logoutTimer();
     showSuccess("Loan approved");
   }
 
