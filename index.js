@@ -30,18 +30,22 @@ let userState = {
   },
 };
 
+let timer;
 function logoutTimer() {
-let time = 300;
-const timer = setInterval(function () {
-  if(time === 0 ) {
-    clearInterval(timer);
+  let time = 300;
+  const timer = setInterval(function () {
+    if (time === 0) {
+      clearInterval(timer);
 
-    userState.currentAccount = null;
-    DOM.app.style.opacity = 0;
-  }
-})
+      userState.currentAccount = null;
+      DOM.app.style.opacity = 0;
+    }
 
+    time--;
+  }, 1000);
 
+  return timer;
+}
 
 //pozdrav poruka.u hederu
 function renderGreeting() {
