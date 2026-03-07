@@ -156,6 +156,8 @@ DOM.loginBtn.addEventListener("click", function (event) {
     renderBalance();
     renderSummary();
   }
+  clearInterval(timer);
+  timer = logoutTimer();
 
   DOM.inputUser.value = "";
   DOM.inputPin.value = "";
