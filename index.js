@@ -32,7 +32,14 @@ let userState = {
 
 function logoutTimer() {
 let time = 300;
-const timer 
+const timer = setInterval(function () {
+  if(time === 0 ) {
+    clearInterval(timer);
+
+    userState.currentAccount = null;
+    DOM.app.style.opacity = 0;
+  }
+})
 
 
 
