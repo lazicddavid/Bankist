@@ -32,13 +32,23 @@ let userState = {
 
 let timer;
 function logoutTimer() {
-  let time = 300;
+  let time = 10;
+
   const timer = setInterval(function () {
+    const minutes = Math.floor(time / 60);
+    const seconds = time % 60;
+
+    DOM.labelTimer.textContent = `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+
     if (time === 0) {
       clearInterval(timer);
 
       userState.currentAccount = null;
-      DOM.app.style.opacity = 0;
+      DOM.dashboard.classList.add("hidden");
+      DOM.navBar.classList.remove("hidden");
+      DOM.labelTimer.textContent = "05:00";
+
+      return;
     }
 
     time--;

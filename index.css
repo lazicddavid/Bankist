@@ -376,7 +376,7 @@ input {
 }
 
 .toast-error {
-  background: #e74c3c;
+  background: rgb(212, 29, 29);
   color: white;
 }
 
@@ -397,14 +397,31 @@ input {
   display: flex;
   gap: 0.7rem;
 }
-
+/*
 .logout-timer {
   min-width: 70px;
   padding: 0.45rem 0.8rem;
   border-radius: 8px;
   background-color: #f3f3f3;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 600;
   text-align: center;
-  color: #444;
+  color: rgb(57, 53, 53);
+}
+*/
+
+.logout-timer {
+  min-width: 88px;
+  padding: 0.55rem 1rem;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #f8f8f8, #ececec);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2d3436;
+  text-align: center;
+  letter-spacing: 1px;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
