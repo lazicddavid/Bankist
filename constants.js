@@ -25,6 +25,7 @@ const DOM = {
   sortBtn: document.querySelector(".sort-btn"),
   lowestBtn: document.querySelector(".lowest-btn"),
   highestBtn: document.querySelector(".highest-btn"),
+  labelTimer: document.querySelector(".logout-timer"),
 };
 
 export default DOM;
