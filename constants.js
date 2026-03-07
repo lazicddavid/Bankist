@@ -28,7 +28,7 @@ const DOM = {
   labelTimer: document.querySelector(".logout-timer"),
   dashboard: document.querySelector(".layout-dashboard"),
   welcome: document.querySelector(".nav-bar h2"),
-  labelTimer: document.querySelector(".logout-timer"),
+  labelTimer: document.querySelector(".timer"),
 };
 
 export default DOM;
