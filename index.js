@@ -11,6 +11,7 @@ accounts.forEach(function (account) {
   });
 
   account.username = username;
+  account;
 });
 
 //napravljen state.
